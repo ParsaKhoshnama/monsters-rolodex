@@ -21,7 +21,7 @@ class App extends React.Component {
     fetch('http://jsonplaceholder.typicode.com/users')
     .then(response=>response.json()).then(users=>(this.setState({string:this.state.string,monsters:users})))
   }
-  
+  8
   render() {
     const{monsters, searchField}=this.state
     const filteredMonsters=monsters.filter(item=> item.name.toLowerCase().includes(searchField.toLowerCase()))
