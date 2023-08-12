@@ -11,19 +11,19 @@ class App extends React.Component {
     this.state = {
       string:'parsa',
       monsters: [],
-      searchField:''
+      searchField:'',
+      title:''
     }
   }
-  handleChange=(element)=>{
-    this.setState({searchField:element.target.value},()=>console.log(this))
+  handleChange=(event)=>{
+    this.setState({searchField:event.target.value},()=>console.log(this.state))
   }
   componentDidMount(){
     fetch('http://jsonplaceholder.typicode.com/users')
     .then(response=>response.json()).then(users=>(this.setState({string:this.state.string,monsters:users})))
   }
-  8
   render() {
-    const{monsters, searchField}=this.state
+    const{monsters, searchField,title}=this.state
     const filteredMonsters=monsters.filter(item=> item.name.toLowerCase().includes(searchField.toLowerCase()))
     return (
       <div className="App">
